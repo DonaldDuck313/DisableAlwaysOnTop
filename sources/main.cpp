@@ -67,7 +67,12 @@ int main(int argc, char **argv){
     QAction *aboutAction = contextMenu.addAction(QObject::tr("&About"));
     QObject::connect(aboutAction, &QAction::triggered, [](){
         timer.stop();    //Stop the timer while the message box is open, otherwise if several desktops are open it will swich back and forth between two random desktops
-        QMessageBox::about(nullptr, "", QObject::tr("Disable Always On Top program by Gustav Lindberg.") + "<br><br>" + QObject::tr("Icons made by %3 from %1 are licensed by %2. Some icons have been modified.").arg("<a href=\"https://www.flaticon.com/\">www.flaticon.com</a>", "<a href=\"http://creativecommons.org/licenses/by/3.0/\">CC 3.0 BY</a>", "<a href=\"https://www.flaticon.com/authors/freepik\" title=\"Freepik\">Freepik</a>"));
+        QMessageBox msg;
+        msg.setIconPixmap(QPixmap(":/icon.ico"));
+        msg.setWindowIcon(QIcon(":/icon.ico"));
+        msg.setWindowTitle(QObject::tr("About"));
+        msg.setText(QObject::tr("Disable Always On Top program by Gustav Lindberg.") + "<br><br>" + QObject::tr("Icons made by %3 from %1 are licensed by %2. Some icons have been modified.").arg("<a href=\"https://www.flaticon.com/\">www.flaticon.com</a>", "<a href=\"http://creativecommons.org/licenses/by/3.0/\">CC 3.0 BY</a>", "<a href=\"https://www.flaticon.com/authors/freepik\" title=\"Freepik\">Freepik</a>"));
+        msg.exec();
         timer.start();
     });
     QAction *exitAction = contextMenu.addAction(QObject::tr("E&xit"));
