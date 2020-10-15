@@ -7,3 +7,5 @@ SOURCES += \
 
 RESOURCES += \
     resource.qrc
+
+win32:RC_FILE = resource.rc
