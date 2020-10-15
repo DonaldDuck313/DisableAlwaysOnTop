@@ -12,8 +12,8 @@ BEGIN
     BEGIN
         BLOCK "040904E4"
         BEGIN
-            VALUE "FileDescription",    "JsPhpLinguist"
-            VALUE "ProductName",        "JsPhpLinguist"
+            VALUE "FileDescription",    "DisableAlwaysOnTop"
+            VALUE "ProductName",        "DisableAlwaysOnTop"
         END
     END
     BLOCK "VarFileInfo"
