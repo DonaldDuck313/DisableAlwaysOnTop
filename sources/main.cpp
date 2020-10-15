@@ -6,6 +6,7 @@
 
 //This function disables Always On Top for the one window which has handler hwnd
 BOOL CALLBACK disableOneWindowAlwaysOnTop(HWND hwnd, LPARAM = 0){
+    //Get the title bar size and the window title so that we can filter out system processes
     RECT wrect;
     GetWindowRect(hwnd, &wrect);
     RECT crect;
@@ -18,6 +19,7 @@ BOOL CALLBACK disableOneWindowAlwaysOnTop(HWND hwnd, LPARAM = 0){
     GetWindowTextW(hwnd, titleData, 1024);
     const QString title = QString::fromWCharArray(titleData);
 
+    //Disable Always On Top for this window
     if(IsWindowVisible(hwnd) && titleBarSize > 0 && !title.contains(QRegExp("^(Default IME|MSCTFIME UI)?$", Qt::CaseInsensitive))){    //Make sure the window is visible, has a title bar and isn't a system process (Default IME or MSCTFIME UI) in order to avoid messing with system stuff
         SetWindowPos(hwnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);    //The last parameter SWP_NOMOVE | SWP_NOSIZE is so that calling this function doesn't move or resize the window
     }
