@@ -1,0 +1,23 @@
+#include <windows.h>
+//Icons
+0 ICON "icon.ico"
+
+VS_VERSION_INFO VERSIONINFO
+FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+FILEOS          VOS__WINDOWS32
+FILETYPE        VFT_APP
+FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "FileDescription",    "JsPhpLinguist"
+            VALUE "ProductName",        "JsPhpLinguist"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1252
+    END
+END
