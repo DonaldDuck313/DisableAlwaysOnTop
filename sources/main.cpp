@@ -37,6 +37,14 @@ int main(int argc, char **argv){
     QApplication app(argc, argv);
     app.setQuitOnLastWindowClosed(false);
 
+    //Load translations
+    QTranslator translator;
+    translator.load(":/disablealwaysontop_" + QLocale::system().name().section('_', 0, 0));
+    app.installTranslator(&translator);
+    QTranslator baseTranslator;
+    baseTranslator.load(":/qtbase_" + QLocale::system().name().section('_', 0, 0));
+    app.installTranslator(&baseTranslator);
+
     //Create a timer that periodically disables Always On Top for all windows
     timer.setInterval(1000);
     QObject::connect(&timer, &QTimer::timeout, [&](){

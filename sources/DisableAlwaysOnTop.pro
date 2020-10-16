@@ -8,4 +8,8 @@ SOURCES += \
 RESOURCES += \
     resource.qrc
 
+TRANSLATIONS = \
+    disablealwaysontop_fr.ts\
+    disablealwaysontop_sv.ts
+
 win32:RC_FILE = resource.rc
